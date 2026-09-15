@@ -481,31 +481,28 @@ if not supabase_url or not supabase_key:
 supabase = get_supabase_client()
 
 if not is_logged_in():
-    st.markdown(
-        f"""
-        <div class="auth-page">
-            <div class="auth-topbar">
-                <div class="auth-brand">
-                    <img src="data:image/svg+xml;base64,{logo_b64}">
-                    <span>FinTrack</span>
-                </div>
-                <div class="auth-topmeta">Controle financeiro pessoal</div>
-            </div>
-
-            <div class="auth-wrap">
-                <div class="auth-card">
-                    <img class="auth-logo" src="data:image/svg+xml;base64,{logo_b64}">
-                    <div class="auth-title">Acesse o FinTrack</div>
-                    <div class="auth-subtitle">
-                        Entre para acompanhar suas despesas, receitas e metas em um só lugar,
-                        de forma simples e organizada.
-                    </div>
-                </div>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    auth_html = (
+        f'<div class="auth-page">'
+        f'<div class="auth-topbar">'
+        f'<div class="auth-brand">'
+        f'<img src="data:image/svg+xml;base64,{logo_b64}">'
+        f'<span>FinTrack</span>'
+        f'</div>'
+        f'<div class="auth-topmeta">Controle financeiro pessoal</div>'
+        f'</div>'
+        f'<div class="auth-wrap">'
+        f'<div class="auth-card">'
+        f'<img class="auth-logo" src="data:image/svg+xml;base64,{logo_b64}">'
+        f'<div class="auth-title">Acesse o FinTrack</div>'
+        f'<div class="auth-subtitle">'
+        f'Entre para acompanhar suas despesas, receitas e metas em um só lugar, '
+        f'de forma simples e organizada.'
+        f'</div>'
+        f'</div>'
+        f'</div>'
+        f'</div>'
     )
+    st.markdown(auth_html, unsafe_allow_html=True)
 
     auth_left, auth_center, auth_right = st.columns([1.15, 1.7, 1.15])
 
