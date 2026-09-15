@@ -119,3 +119,14 @@ drop policy if exists "saving_tx_delete_own" on public.savings_transactions;
 create policy "saving_tx_delete_own"
 on public.savings_transactions for delete to authenticated
 using ((select auth.uid()) = user_id);
+
+
+-- Security hardening for Supabase automatic RLS helper.
+-- Keeps the event-trigger behavior while preventing direct RPC execution.
+do $$
+begin
+  if to_regprocedure('public.rls_auto_enable()') is not null then
+    revoke execute on function public.rls_auto_enable() from public, anon, authenticated;
+  end if;
+end
+$$;
