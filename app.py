@@ -1,4 +1,5 @@
 import base64
+import re
 from datetime import date
 from pathlib import Path
 
@@ -345,8 +346,16 @@ if not is_logged_in():
             if submitted:
                 if not email.strip():
                     st.error("Informe seu e-mail.")
-                elif len(password) < 8:
-                    st.error("A senha deve ter pelo menos 8 caracteres.")
+                elif len(password) < 12:
+                    st.error("A senha deve ter pelo menos 12 caracteres.")
+                elif not re.search(r"[a-z]", password):
+                    st.error("A senha deve conter pelo menos uma letra minúscula.")
+                elif not re.search(r"[A-Z]", password):
+                    st.error("A senha deve conter pelo menos uma letra maiúscula.")
+                elif not re.search(r"\d", password):
+                    st.error("A senha deve conter pelo menos um número.")
+                elif not re.search(r"[^A-Za-z0-9]", password):
+                    st.error("A senha deve conter pelo menos um símbolo.")
                 elif password != password2:
                     st.error("As senhas não coincidem.")
                 else:
