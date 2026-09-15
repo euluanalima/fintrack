@@ -204,24 +204,152 @@ st.markdown(
         font-weight: 650 !important;
     }
 
+    .auth-page {
+        position: relative;
+        min-height: 72vh;
+        overflow: hidden;
+        border-radius: 28px;
+        padding: 8px 8px 26px;
+        margin-top: -8px;
+    }
+
+    .auth-page::before,
+    .auth-page::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .auth-page::before {
+        width: 340px;
+        height: 340px;
+        right: -170px;
+        top: 190px;
+        background: linear-gradient(135deg, rgba(219,231,247,.46), rgba(239,244,251,.08));
+        transform: rotate(-18deg);
+    }
+
+    .auth-page::after {
+        width: 300px;
+        height: 300px;
+        left: -170px;
+        bottom: -145px;
+        background: linear-gradient(135deg, rgba(222,233,248,.44), rgba(244,247,251,.08));
+    }
+
+    .auth-topbar {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 8px 2px 24px;
+    }
+
+    .auth-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.45rem;
+        font-weight: 850;
+        color: var(--text);
+        letter-spacing: -.035em;
+    }
+
+    .auth-brand img {
+        width: 46px;
+        height: 46px;
+    }
+
+    .auth-topmeta {
+        color: var(--muted);
+        font-size: .84rem;
+        font-weight: 650;
+    }
+
     .auth-wrap {
-        max-width: 520px;
-        margin: 1rem auto 0;
+        position: relative;
+        z-index: 1;
+        max-width: 610px;
+        margin: 1.4rem auto 0;
     }
 
     .auth-card {
-        background: #FFFFFF;
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 24px;
+        background: rgba(255,255,255,.97);
+        border: 1px solid #E1E6EF;
+        border-radius: 24px;
+        padding: 32px 30px 28px;
         text-align: center;
-        box-shadow: 0 10px 28px rgba(16,24,40,.06);
-        margin-bottom: 14px;
+        box-shadow: 0 22px 55px rgba(23,32,51,.09);
+        margin-bottom: 22px;
     }
 
-    .auth-logo { width: 64px; height: 64px; margin-bottom: 12px; }
-    .auth-title { font-size: 1.5rem; font-weight: 800; color: var(--text); }
-    .auth-subtitle { color: var(--muted); margin-top: 7px; line-height: 1.5; }
+    .auth-logo {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 14px;
+        filter: drop-shadow(0 8px 14px rgba(23,32,51,.10));
+    }
+
+    .auth-title {
+        font-size: 2rem;
+        font-weight: 850;
+        color: var(--text);
+        letter-spacing: -.04em;
+        line-height: 1.1;
+    }
+
+    .auth-subtitle {
+        color: var(--muted);
+        margin: 10px auto 0;
+        line-height: 1.55;
+        max-width: 470px;
+        font-size: .98rem;
+    }
+
+    .auth-features {
+        position: relative;
+        z-index: 1;
+        max-width: 760px;
+        margin: 24px auto 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        color: #667085;
+        font-size: .82rem;
+        font-weight: 650;
+    }
+
+    .auth-feature {
+        padding: 0 22px;
+        white-space: nowrap;
+    }
+
+    .auth-feature + .auth-feature {
+        border-left: 1px solid #D9DEE7;
+    }
+
+    .auth-feature strong {
+        color: #344054;
+        margin-right: 6px;
+    }
+
+    .auth-panel-note {
+        text-align: center;
+        color: #98A2B3;
+        font-size: .8rem;
+        margin: 8px 0 4px;
+    }
+
+    .logout-footer {
+        margin-top: 34px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+    }
 
     @media (max-width: 760px) {
         .block-container { padding: 3.2rem .8rem 2rem !important; }
@@ -238,6 +366,68 @@ st.markdown(
         .ft-user {
             max-width: 42vw;
             font-size: .72rem;
+        }
+
+        .auth-page {
+            min-height: auto;
+            padding: 2px 0 14px;
+            overflow: visible;
+        }
+
+        .auth-topbar {
+            padding: 2px 2px 16px;
+        }
+
+        .auth-brand {
+            font-size: 1.2rem;
+            gap: 9px;
+        }
+
+        .auth-brand img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .auth-topmeta { display: none; }
+
+        .auth-wrap {
+            margin-top: .45rem;
+            max-width: 100%;
+        }
+
+        .auth-card {
+            padding: 25px 18px 22px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .auth-logo {
+            width: 62px;
+            height: 62px;
+        }
+
+        .auth-title {
+            font-size: 1.65rem;
+        }
+
+        .auth-subtitle {
+            font-size: .91rem;
+        }
+
+        .auth-features {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 9px;
+            margin: 18px auto 4px;
+            text-align: center;
+        }
+
+        .auth-feature {
+            padding: 0;
+        }
+
+        .auth-feature + .auth-feature {
+            border-left: 0;
         }
 
         input, textarea, select { font-size: 16px !important; }
@@ -293,12 +483,23 @@ supabase = get_supabase_client()
 if not is_logged_in():
     st.markdown(
         f"""
-        <div class="auth-wrap">
-            <div class="auth-card">
-                <img class="auth-logo" src="data:image/svg+xml;base64,{logo_b64}">
-                <div class="auth-title">Acesse o FinTrack</div>
-                <div class="auth-subtitle">
-                    Entre para acessar suas despesas, receitas e metas em qualquer dispositivo.
+        <div class="auth-page">
+            <div class="auth-topbar">
+                <div class="auth-brand">
+                    <img src="data:image/svg+xml;base64,{logo_b64}">
+                    <span>FinTrack</span>
+                </div>
+                <div class="auth-topmeta">Controle financeiro pessoal</div>
+            </div>
+
+            <div class="auth-wrap">
+                <div class="auth-card">
+                    <img class="auth-logo" src="data:image/svg+xml;base64,{logo_b64}">
+                    <div class="auth-title">Acesse o FinTrack</div>
+                    <div class="auth-subtitle">
+                        Entre para acompanhar suas despesas, receitas e metas em um só lugar,
+                        de forma simples e organizada.
+                    </div>
                 </div>
             </div>
         </div>
@@ -306,67 +507,113 @@ if not is_logged_in():
         unsafe_allow_html=True,
     )
 
-    login_tab, signup_tab = st.tabs(["Entrar", "Criar conta"])
+    auth_left, auth_center, auth_right = st.columns([1.15, 1.7, 1.15])
 
-    with login_tab:
-        with st.form("login_form"):
-            email = st.text_input("E-mail", placeholder="voce@email.com")
-            password = st.text_input("Senha", type="password")
-            submitted = st.form_submit_button("Entrar", type="primary", use_container_width=True)
+    with auth_center:
+        with st.container(border=True):
+            login_tab, signup_tab = st.tabs(["Entrar", "Criar conta"])
 
-            if submitted:
-                if not email.strip() or not password:
-                    st.error("Informe e-mail e senha.")
-                else:
-                    try:
-                        if login(email, password):
-                            st.rerun()
-                    except Exception:
-                        st.error("Não foi possível entrar. Verifique seus dados e confirme seu e-mail.")
+            with login_tab:
+                with st.form("login_form"):
+                    email = st.text_input("E-mail", placeholder="voce@email.com")
+                    password = st.text_input("Senha", type="password", placeholder="Sua senha")
+                    submitted = st.form_submit_button(
+                        "Entrar  →", type="primary", use_container_width=True
+                    )
 
-        with st.expander("Esqueci minha senha"):
-            reset_email = st.text_input("E-mail para recuperação", key="reset_email")
-            if st.button("Enviar recuperação", use_container_width=True):
-                if not reset_email.strip():
-                    st.warning("Informe seu e-mail.")
-                else:
-                    try:
-                        send_password_reset(reset_email)
-                        st.success("Se a conta existir, as instruções serão enviadas por e-mail.")
-                    except Exception:
-                        st.error("Não foi possível solicitar a recuperação.")
-
-    with signup_tab:
-        with st.form("signup_form"):
-            email = st.text_input("E-mail", placeholder="voce@email.com", key="signup_email")
-            password = st.text_input("Senha", type="password", key="signup_password")
-            password2 = st.text_input("Confirmar senha", type="password", key="signup_password2")
-            submitted = st.form_submit_button("Criar conta", type="primary", use_container_width=True)
-
-            if submitted:
-                if not email.strip():
-                    st.error("Informe seu e-mail.")
-                elif len(password) < 12:
-                    st.error("A senha deve ter pelo menos 12 caracteres.")
-                elif not re.search(r"[a-z]", password):
-                    st.error("A senha deve conter pelo menos uma letra minúscula.")
-                elif not re.search(r"[A-Z]", password):
-                    st.error("A senha deve conter pelo menos uma letra maiúscula.")
-                elif not re.search(r"\d", password):
-                    st.error("A senha deve conter pelo menos um número.")
-                elif not re.search(r"[^A-Za-z0-9]", password):
-                    st.error("A senha deve conter pelo menos um símbolo.")
-                elif password != password2:
-                    st.error("As senhas não coincidem.")
-                else:
-                    try:
-                        result = signup(email, password)
-                        if result == "logged_in":
-                            st.rerun()
+                    if submitted:
+                        if not email.strip() or not password:
+                            st.error("Informe e-mail e senha.")
                         else:
-                            st.success("Conta criada. Confirme o e-mail e depois faça login.")
-                    except Exception:
-                        st.error("Não foi possível criar a conta. O e-mail pode já estar cadastrado.")
+                            try:
+                                if login(email, password):
+                                    st.rerun()
+                            except Exception:
+                                st.error(
+                                    "Não foi possível entrar. Verifique seus dados e confirme seu e-mail."
+                                )
+
+                with st.expander("Esqueceu sua senha?"):
+                    reset_email = st.text_input(
+                        "E-mail para recuperação", key="reset_email"
+                    )
+                    if st.button("Enviar recuperação", use_container_width=True):
+                        if not reset_email.strip():
+                            st.warning("Informe seu e-mail.")
+                        else:
+                            try:
+                                send_password_reset(reset_email)
+                                st.success(
+                                    "Se a conta existir, as instruções serão enviadas por e-mail."
+                                )
+                            except Exception:
+                                st.error("Não foi possível solicitar a recuperação.")
+
+            with signup_tab:
+                with st.form("signup_form"):
+                    email = st.text_input(
+                        "E-mail", placeholder="voce@email.com", key="signup_email"
+                    )
+                    password = st.text_input(
+                        "Senha",
+                        type="password",
+                        key="signup_password",
+                        placeholder="Crie uma senha forte",
+                    )
+                    password2 = st.text_input(
+                        "Confirmar senha",
+                        type="password",
+                        key="signup_password2",
+                        placeholder="Digite a senha novamente",
+                    )
+                    submitted = st.form_submit_button(
+                        "Criar conta", type="primary", use_container_width=True
+                    )
+
+                    if submitted:
+                        if not email.strip():
+                            st.error("Informe seu e-mail.")
+                        elif len(password) < 12:
+                            st.error("A senha deve ter pelo menos 12 caracteres.")
+                        elif not re.search(r"[a-z]", password):
+                            st.error("A senha deve conter pelo menos uma letra minúscula.")
+                        elif not re.search(r"[A-Z]", password):
+                            st.error("A senha deve conter pelo menos uma letra maiúscula.")
+                        elif not re.search(r"\d", password):
+                            st.error("A senha deve conter pelo menos um número.")
+                        elif not re.search(r"[^A-Za-z0-9]", password):
+                            st.error("A senha deve conter pelo menos um símbolo.")
+                        elif password != password2:
+                            st.error("As senhas não coincidem.")
+                        else:
+                            try:
+                                result = signup(email, password)
+                                if result == "logged_in":
+                                    st.rerun()
+                                else:
+                                    st.success(
+                                        "Conta criada. Confirme o e-mail e depois faça login."
+                                    )
+                            except Exception:
+                                st.error(
+                                    "Não foi possível criar a conta. O e-mail pode já estar cadastrado."
+                                )
+
+            st.markdown(
+                '<div class="auth-panel-note">Seus dados ficam associados somente à sua conta.</div>',
+                unsafe_allow_html=True,
+            )
+
+    st.markdown(
+        """
+        <div class="auth-features">
+            <div class="auth-feature"><strong>▥</strong> Organize suas finanças</div>
+            <div class="auth-feature"><strong>◎</strong> Acompanhe suas metas</div>
+            <div class="auth-feature"><strong>◇</strong> Mantenha seus dados sincronizados</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     st.stop()
 
@@ -389,13 +636,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-logout_left, logout_right = st.columns([6, 1])
-with logout_left:
-    st.caption("Seus dados ficam sincronizados com sua conta.")
-with logout_right:
-    if st.button("Sair", use_container_width=True):
-        logout()
-        st.rerun()
+st.caption("Seus dados ficam sincronizados com sua conta.")
 
 df = get_transactions(supabase, user_id)
 goals = get_savings_goals(supabase, user_id)
@@ -718,4 +959,12 @@ with tab_goals:
                 st.success("Meta excluída.")
                 st.rerun()
 
-st.caption("FinTrack · Controle financeiro pessoal")
+st.markdown('<div class="logout-footer"></div>', unsafe_allow_html=True)
+footer_left, footer_right = st.columns([4, 1])
+with footer_left:
+    st.caption("FinTrack · Controle financeiro pessoal")
+    st.caption(f"Conectado como {user_email}")
+with footer_right:
+    if st.button("Sair", key="logout_footer", use_container_width=True):
+        logout()
+        st.rerun()
