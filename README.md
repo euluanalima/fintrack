@@ -225,15 +225,23 @@ As instruções de deploy estão disponíveis em [DEPLOY-STREAMLIT.md](DEPLOY-ST
 
 ## Capturas de tela
 
-A estrutura para as imagens do portfólio está preparada em [docs/screenshots](docs/screenshots).
+### Login
 
-As capturas recomendadas são:
+![Tela de login do FinTrack](docs/screenshots/login.webp)
 
-- tela de login;
-- visão geral/dashboard;
-- transações;
-- metas e cofrinhos;
-- versão mobile.
+### Dashboard
+
+![Dashboard financeiro do FinTrack](docs/screenshots/dashboard.webp)
+
+### Transações
+
+![Tela de transações do FinTrack](docs/screenshots/transacoes.webp)
+
+### Metas e cofrinhos
+
+![Tela de metas e cofrinhos do FinTrack](docs/screenshots/metas.webp)
+
+> As imagens usam dados de demonstração para apresentação do projeto.
 
 ## Roadmap
 
@@ -245,7 +253,7 @@ As capturas recomendadas são:
 - [x] Segurança com RLS
 - [x] Interface responsiva
 - [x] Deploy público
-- [ ] Adicionar capturas de tela ao README
+- [x] Adicionar capturas de tela ao README
 - [ ] Melhorar recuperação de conta e confirmação de e-mail
 - [ ] Exportar dados financeiros
 - [ ] Criar novos indicadores e relatórios
